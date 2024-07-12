@@ -5,7 +5,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 import { Button } from "./ui/button"
 import { Separator } from "./ui/separator"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
-import { LogOut, MoreHorizontal, Settings, Sidebar } from "lucide-react"
+import { LogOut, Menu, MoreHorizontal, Settings, Sidebar } from "lucide-react"
 import { usePathname } from "next/navigation"
 
 interface SidebarDesktopProps {
@@ -16,14 +16,17 @@ export const SidebarDesktop = (props: SidebarDesktopProps) => {
   const pathname = usePathname()
 
   return (
-    <aside className="min-w-[270px] max-w-xs h-screen left-0 top-0 border-r">
+    <aside className="min-w-[270px] h-screen border-r">
       <div className="h-full flex flex-col">
-        <h3 className="mt-4 mx-6 text-lg font-semibold text-foreground">
-          SystemTitle
+        <h3 className="mt-4 mx-3 text-lg font-semibold text-foreground flex items-center">
+          <Button size="icon" variant="ghost" className="top-3 left-3">
+            <Menu size={20} />
+          </Button>
+          <div className="ml-2">SystemTitle</div>
         </h3>
         {/* サイドメニュー */}
         <div className="mt-5 mx-3 flex-grow">
-          <div className="flex flex-col gap-1 w-full">
+          <div className="flex flex-col gap-1">
             {props.sidebarItems.links.map((link, index) => {
               return (
                 <Link key={index} href={link.href}>
@@ -40,9 +43,9 @@ export const SidebarDesktop = (props: SidebarDesktopProps) => {
             {props.sidebarItems.extras}
           </div>
         </div>
-        {/* サイドバーフッター */}
+        {/* サイドメニューフッター */}
         <div className="py-3">
-          <Separator className="mb-3 left-0 w-full" />
+          <Separator className="mb-3" />
           <div className="mx-3">
             <Popover>
               <Button variant="ghost" className="w-full">

@@ -16,6 +16,7 @@ import Link from "next/link"
 import { Separator } from "./ui/separator"
 import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from "./ui/drawer"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
+import { DialogTitle } from "@radix-ui/react-dialog"
 
 interface SidebarMobileProps {
   sidebarItems: SideBarItems
@@ -31,6 +32,7 @@ export const SidebarMobile = (props: SidebarMobileProps) => {
         </Button>
       </SheetTrigger>
       <SheetContent side="left" className="px-3 py-4" hideClose>
+        <DialogTitle></DialogTitle>
         <SheetHeader className="flex flex-row justify-between item-center space-y-0">
           <span className="text-lg font-semibold text-foreground mx-3">
             Twitter

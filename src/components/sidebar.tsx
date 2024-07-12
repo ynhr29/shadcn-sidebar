@@ -45,7 +45,6 @@ export const Sidebar = () => {
   const isDesktop = useMediaQuery("(min-width: 640px)", {
     initializeWithValue: false,
   })
-  console.log("isDesktop:", isDesktop)
   if (isDesktop) {
     return <SidebarDesktop sidebarItems={sidebarItems} />
   }
