@@ -16,11 +16,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    // <html lang="ja" className="">
-    <html lang="ja" className="dark">
+    // <html lang="ja" className="dark">
+    <html lang="ja" className="">
       <body className={inter.className}>
         <Sidebar />
-        <main className="ml-[300px] mt-3">{children}</main>
+        <main className="mx-5 mt-16 sm:ml-[300px] sm:mt-3">{children}</main>
       </body>
     </html>
   )

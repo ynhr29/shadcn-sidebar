@@ -13,6 +13,8 @@ import {
 import { SidebarDesktop } from "./sidebar-desktop"
 import { SideBarItems } from "@/types"
 import { SidebarButton } from "./sidebar-button"
+import { useMediaQuery } from "usehooks-ts"
+import { SidebarMobile } from "./sidebar-mobile"
 
 const sidebarItems: SideBarItems = {
   links: [
@@ -40,5 +42,13 @@ const sidebarItems: SideBarItems = {
 }
 
 export const Sidebar = () => {
-  return <SidebarDesktop sidebarItems={sidebarItems} />
+  const isDesktop = useMediaQuery("(min-width: 640px)", {
+    initializeWithValue: false,
+  })
+  console.log("isDesktop:", isDesktop)
+  if (isDesktop) {
+    return <SidebarDesktop sidebarItems={sidebarItems} />
+  }
+
+  return <SidebarMobile sidebarItems={sidebarItems} />
 }
