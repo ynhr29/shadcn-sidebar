@@ -19,8 +19,10 @@ export default function RootLayout({
     // <html lang="ja" className="dark">
     <html lang="ja" className="">
       <body className={inter.className}>
-        <Sidebar />
-        <main className="mx-5 mt-16 sm:ml-[300px] sm:mt-3">{children}</main>
+        <div className="flex">
+          <Sidebar />
+          <main className="mx-5 mt-16 sm:mt-3">{children}</main>
+        </div>
       </body>
     </html>
   )

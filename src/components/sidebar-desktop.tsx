@@ -16,13 +16,13 @@ export const SidebarDesktop = (props: SidebarDesktopProps) => {
   const pathname = usePathname()
 
   return (
-    <aside className="w-[270px] max-w-xs h-screen fixed left-0 top-0 z-40 border-r">
-      <div className="h-full px-3 py-4">
-        <h3 className="mx-3 text-lg font-semibold text-foreground">
+    <aside className="min-w-[270px] max-w-xs h-screen left-0 top-0 border-r">
+      <div className="h-full flex flex-col">
+        <h3 className="mt-4 mx-6 text-lg font-semibold text-foreground">
           SystemTitle
         </h3>
-        <div className="mt-5">
-          {/* サイドメニュー */}
+        {/* サイドメニュー */}
+        <div className="mt-5 mx-3 flex-grow">
           <div className="flex flex-col gap-1 w-full">
             {props.sidebarItems.links.map((link, index) => {
               return (
@@ -39,12 +39,13 @@ export const SidebarDesktop = (props: SidebarDesktopProps) => {
             })}
             {props.sidebarItems.extras}
           </div>
-
-          {/* サイドバーフッター */}
-          <div className="absolute left-0 bottom-3 w-full px-3">
-            <Separator className="absolute -top-3 left-0 w-full" />
+        </div>
+        {/* サイドバーフッター */}
+        <div className="py-3">
+          <Separator className="mb-3 left-0 w-full" />
+          <div className="mx-3">
             <Popover>
-              <Button variant="ghost" className="w-full justify-start">
+              <Button variant="ghost" className="w-full">
                 <PopoverTrigger asChild>
                   <div className="flex justify-between items-center w-full">
                     <div className="flex gap-2">
